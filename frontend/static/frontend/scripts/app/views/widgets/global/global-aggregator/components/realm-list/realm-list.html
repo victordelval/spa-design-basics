@@ -1,0 +1,234 @@
+<div id="realmList" style="padding-top: 20px">
+    <ul class="list-group icons-list-group">
+        <div class="row row-expanded">
+            
+            <!-- -->
+            {{#each realm_list}}
+
+              <li class="list-group-item h_s_realm-deactivated col-xs-12 col-sm-6 col-md-6 col-lg-4" id="{{type}}-{{name}}">
+            
+                <div class="row">
+            
+                  <div class="row">
+            
+                    <div id="realm-link" class="col-xs-8 padding-slim" style="margin-bottom:15px;">
+                      <a href="#/{{type}}/{{name}}" title="{{ display_name }}">
+                        {{ display_name }}
+                      </a>
+                    </div>
+            
+                    <div class="col-xs-4 padding-slim">
+                      <span class="pull-right">
+                        <span class="realm-panel-time-period-icon realm-panel-time-period-off">
+                          <i class="fa fa-clock-o" aria-hidden="true" title='Time Periods are disabled. (Click to enable)'></i>
+                        </span>
+                          <i class="fa fa-sitemap multirealm-icon"></i>
+                      </span>
+                    </div>
+            
+                  </div>
+            
+                  <div class="col-xs-12 padding-slim">
+                    <table class="table table-condensed table-slim-realm-box table-cell-no-break no-line table-cell-vertical-center table-font-sm table-gray-first-col no-margin-bottom">
+                      <tbody>
+                        <tr>
+                          <td class='col-xs-4'>
+                            Hosts (<span id="host_total_{{name}}">-</span>)
+                          </td>
+                          <td id="host_down_{{name}}" class='col-xs-2'>
+                            <span id="host-down-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-arrow-down fa-stack-1x"></i>
+                              </span>
+                              <span id='host-down' class="off-sm-trans">-</span>
+                            </span>
+                          </td>
+                          <td class='col-xs-2'></td>
+                          <td id="host_unreachable_{{name}}" class='col-xs-2'>
+                            <span id="host-unreachable-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-question fa-stack-1x"></i>
+                              </span>
+                              <span id='host-unreachable' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="host_up_{{name}}" class='col-xs-2'>
+                            <span id="host-ok-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x"></i>
+                              </span>
+                              <span id='host-ok' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="host_filtered_{{name}}" class='col-xs-2'>
+                            <span id="host-filtered-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-filter fa-stack-1x"></i>
+                              </span>
+                              <span id='host-filtered' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                        </tr>
+            
+                        <tr>
+                          <td class='col-xs-4'>
+                            BP Hosts (<span id="bp_host_total_{{name}}">-</span>)
+                          </td>
+                          <td id="bp_host_down_{{name}}" class='col-xs-2'>
+                            <span id="bp-host-down-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-arrow-down fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-host-down' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td class='col-xs-2'></td>
+                          <td id="bp_host_unreachable_{{name}}" class='col-xs-2'>
+                            <span id="bp-host-unreachable-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-question fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-host-unreachable' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_host_up_{{name}}" class='col-xs-2'>
+                            <span id="bp-host-ok-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-host-ok' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_host_filtered_{{name}}" class='col-xs-2'>
+                            <span id="bp-host-filtered-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-filter fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-host-filtered' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class='col-xs-4'>
+                            Services (<span id="service_total_{{name}}">-</span>)
+                          </td>
+                          <td id="service_crit_{{name}}" class='col-xs-2'>
+                            <span id="service-crit-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-arrow-down fa-stack-1x"></i>
+                              </span>
+                              <span id='service-crit' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="service_warn_{{name}}" class='col-xs-2'>
+                            <span id="service-warn-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-exclamation fa-stack-1x"></i>
+                              </span>
+                              <span id='service-warn' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="service_unknown_{{name}}" class='col-xs-2'>
+                            <span id="service-unknown-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-question fa-stack-1x"></i>
+                              </span>
+                              <span id='service-unknown' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="service_ok_{{name}}" class='col-xs-2'>
+                            <span id="service-ok-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x"></i>
+                              </span>
+                              <span id='service-ok' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="service_filtered_{{name}}" class='col-xs-2'>
+                            <span id="service-filtered-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-filter fa-stack-1x"></i>
+                              </span>
+                              <span id='service-filtered' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                        </tr>
+            
+                        <tr>
+                          <td class='col-xs-4'>
+                            BP Services (<span id="bp_service_total_{{name}}">-</span>)
+                          </td>
+                          <td id="bp_service_crit_{{name}}" class='col-xs-2'>
+                            <span id="bp-service-crit-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-arrow-down fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-service-crit' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_service_warn_{{name}}" class='col-xs-2'>
+                            <span id="bp-service-warn-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-exclamation fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-service-warn' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_service_unknown_{{name}}" class='col-xs-2'>
+                            <span id="bp-service-unknown-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-question fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-service-unknown' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_service_ok_{{name}}" class='col-xs-2'>
+                            <span id="bp-service-ok-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-check fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-service-ok' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                          <td id="bp_service_filtered_{{name}}" class='col-xs-2'>
+                            <span id="bp-service-filtered-wrapper">
+                              <span class="fa-stack off-sm-trans">
+                                <i class="fa fa-circle-o fa-stack-2x"></i>
+                                <i class="fa fa-filter fa-stack-1x"></i>
+                              </span>
+                              <span id='bp-service-filtered' class='off-sm-trans'>-</span>
+                            </span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            
+              </li>
+            
+
+            {{/each}}
+            <!-- -->
+
+
+        </div>
+    </ul>
+</div>

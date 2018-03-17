@@ -1,0 +1,111 @@
+<nav id="menu" class="navbar navbar-default navbar-inverse" role="navigation">
+  <div class="container-fluid">
+
+    <div class="navbar-header">
+      <button id="main-menu-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+
+    <div class="collapse navbar-collapse small-font-menu" id="main-menu">
+
+      <ul class="nav navbar-nav menu-dropdown">
+
+        {{#if app.header_logo}}
+        <li class="main-title">
+          <a href="#" id="main-customer-logo-link">
+            <img src="{{! }}" height="15px" max-width="100px">
+          </a>
+        </li>
+        {{/if}}
+
+        {{#each app.menu}}
+        <li class="main-title">
+          <!-- open user defined links in other tab -->
+          {{#if user}}
+            <a href="#" target="_blank">
+          {{else}}
+            <a href="#">
+          {{/if}}
+          <i class="fa fa-{{ icon }}"></i> {{ name }}</a>
+        </li>
+        {{/each}}
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right menu-dropdown">
+
+        {{#if user.superuser}}
+        <li id="logged-user" class="no-hover">
+          <a title="{{ logged_users }}" role="button">
+            <span class="extra-small-font-menu">Logged users: {{ app.logged_users }}</span>
+          </a>
+        </li>
+
+        <li class="no-hover">
+          <a>
+            <span class="extra-small-font-menu">Active sessions: {{ app.num_sessions }}</span>
+          </a>
+        </li>
+        {{/if}}
+
+        <li id="timer-li" class="navbar-text">
+          <a class="navbar-link">
+            <!-- <i class="fa fa-clock-o autorefresh-icon enabled"></i> -->
+            <span class='fa-stack navbar-icon'>
+              <i class='fa fa-ban fa-stack-2x autorefresh-icon'></i>
+              <i class='fa fa-clock-o fa-stack-1x autorefresh-icon'></i>
+            </span>
+          </a>
+        </li>
+
+        <li class="dropdown">
+          <a id="user" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            {{ user.name }}
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right user-actions">
+            <li id="documentation">
+              <a class="navbar-link" href="{% docs_url %}" target="_blank" rel="noopener">
+                <i class="fa fa-book" aria-hidden="true"></i>
+                Documentation
+              </a>
+            </li>
+
+            <li id="user-preferences">
+              <a class="navbar-link" href="#" target="_blank">
+                <i class="fa fa-wrench" aria-hidden="true"></i>
+                {{action.title}}
+              </a>
+            </li>
+
+            {{#if user.superuser}}    
+            <li id="admin">
+              <a class="navbar-link" href="{% url 'admin:index' %}" target="_blank" rel="noopener">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                Advanced Configuration
+              </a>
+            </li>
+            {{/if}}
+            
+            <li id="login">
+              <a href="{% url 'logout' %}">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                Logout
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="no-hover">
+          <a>
+            <span class="extra-small-font-menu">{{ app.version }}</span>
+          </a>
+        </li>
+
+
+      </ul>
+
+    </div>
+
+  </div>
+</nav>

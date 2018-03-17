@@ -1,0 +1,51 @@
+<div id="realmFilters" class="row row-expanded list-filters-bar">
+    <div id="show-realm-scope" class="dropdown col-xs-4 col-md-2">
+        <button id="dropdownShowRealmButton" class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fa fa-globe" aria-hidden="true"></i>
+            All realms
+            <div id="active-realm-badge" title="Active realms">
+                <span id="active-filter-counter" class="badge">0</span>
+            </div>
+        </button>
+        <div class="dropdown-menu bullets-link" aria-labelledby="dropdownShowRealmButton">
+            <span id="filter_all" class="center-scope-link bullets-link">
+                <i class="fa fa-globe" aria-hidden="true"></i>
+                All realms
+            </span>
+            <span id="filter_realm" class="center-scope-link bullets-link">
+                <i class="fa fa-object-group hostgroup-icon" aria-hidden="true"></i>
+                Standard realm
+            </span>
+            <span id="filter_multirealm" class="center-scope-link bullets-link">
+                <i class="fa fa-sitemap multirealm-icon" aria-hidden="true"></i>
+                Multirealms
+            </span>
+            <span id="filter_hostgroups" class="center-scope-link bullets-link">
+                <i class="fa fa-object-ungroup hostgroup-icon" aria-hidden="true"></i>
+                Hostgroup realms
+            </span>
+        </div>
+    </div>
+    <div class="col-xs-12 col-md-3 col-md-offset-1">
+        <input class="search-realm form-control" type="text" placeholder="Search...">
+    </div>
+    <div class="col-xs-4 col-md-2">
+        <button type="button" class="btn btn-default btn-block name-sort" disabled>
+            Name
+            <i class="fa fa-sort-asc"></i>
+        </button>
+    </div>
+    <div class="col-xs-4 col-md-2">
+        <button type="button" class="btn btn-default btn-block status-sort" disabled>
+            Problems
+            <i class="fa fa-sort"></i>
+        </button>
+    </div>
+    <div class="col-xs-4 col-md-2">
+        <button type="button" class="btn btn-default btn-block weight-sort" disabled>
+            Assets
+            <i class="fa fa-sort"></i>
+        </button>
+    </div>
+</div>

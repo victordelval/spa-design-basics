@@ -1,0 +1,45 @@
+<div id="realmMenu" class="row row-expanded">
+    
+    {{!-- 
+        {# hardcoded filter #}
+        {% if not realm.hostgroups and realm.type != 'multirealm' %}
+        {% include "aggregator/partials/monitoring-and-configuration.html" %}
+        {% endif %}
+        {# end hardcoded filter #}
+    --}}
+
+    <!-- Nav tabs -->
+    <ul id="realm-tab-navbar" class="nav nav-tabs nav-justified realm-dropdown-info-caret" role="tablist">
+        <li id="realm-name-wrapper" class="realm-title-nav-li" role="presentation">
+            <a class="realm-title-nav">
+                <span class="realm-mid-name" title="{{realm.display_name}}">{{realm.name}}</span>
+            </a>
+        </li>
+
+        {{#tabmenu tabs realm}}
+            {{-}}
+        {{/tabmenu}}
+
+        {{!--
+            {{#each tabs}}
+                <li id="{{name}}-tab" class="main-tab" role="presentation">
+                <a href="#/{{realm.type}}/{{realm.name}}" aria-controls="{{name}}" role="tab" data-toggle="tab">
+                    <i class="fa fa-{{icon}} tab-icon"></i> <span class="tab-text">{{name}}</span>
+                </a>
+                </li>
+            {{/each}}
+        --}}
+
+    </ul>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content row-expanded">
+
+    {{#each tabs}}
+        <div id="{{name}}" role="tabpanel" class="tab-pane fade">
+            {{name}} panel
+        </div>
+    {{/each}}
+
+</div>

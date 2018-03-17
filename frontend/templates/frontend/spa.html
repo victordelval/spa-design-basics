@@ -1,0 +1,57 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>WOCU - Monitoring</title>
+
+    <!-- Base Libs css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/bootstrap-3.3.7-dist/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/font-awesome-4.6.3/css/font-awesome.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'lib/pace/pace-theme-minimal.css' %}" />
+
+    <!-- Base Custom css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'frontend/scripts/app/views/dashboard/components/dashboard-menu/dashboard-menu.css' %}" />
+
+    <!-- Legacy Custom css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'aggregator/css/main.css' %}" />
+
+    <!-- RequireJS scripts loader -->
+    <script data-main="{% static 'frontend/scripts/app' %}" src="{% static 'frontend/scripts/lib/require.js' %}"></script>
+
+</head>
+
+<body>
+    <!-- dashboard -->
+    <div id="main">
+        <div id="content">
+            <div id="errorPage" class="page">
+                <div class="container"></div>
+            </div>
+            <div id="globalPage" class="page">
+                <div class="container"></div>
+            </div>
+            <div id="realmPage" class="page">
+                <div class="container"></div>
+            </div>
+            <div id="hostPage" class="page">
+                <div class="container"></div>
+            </div>
+        </div>
+    </div>
+
+
+    {% if debug == True %}
+        <!-- Libs for debug -->
+        <script type="text/javascript" src="{% static 'frontend/scripts/lib/debug/memory-stats.js' %}"></script>
+        <!-- <script type="text/javascript" src="{% static 'frontend/scripts/lib/debug/Stats.js' %}"></script> -->
+
+        <!-- app/core scripts for debug -->
+        <script type="text/javascript" src="{% static 'frontend/scripts/app/core/debug/memory.js' %}"></script>
+        <!-- <script type="text/javascript" src="{% static 'frontend/scripts/app/core/debug/stats.js' %}"></script> -->
+    {% endif %}
+
+</body>
+
+</html>

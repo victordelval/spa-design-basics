@@ -1,0 +1,185 @@
+<div id="aggregatorPanel" class="row row-expanded">
+
+  <div class="panel panel-default panel-status-section">
+
+    <div class="row">
+      <div class="col-lg-12 panel-heading">
+        <div class="row">
+
+          <div class="col-xs-6 col-md-2" style="margin-bottom: 15px;">
+              <img class="logo" src="" alt="Wocu" height="44">
+          </div>
+          <div class="col-xs-6 col-md-2 pull-right" style="margin-bottom: 15px;">
+            <span class="pull-right">
+              <!-- REFRESH INFORMATION-->
+              <button type="button" title="Refresh now" class="btn btn-default btn-refresh" id="aggregator-refresh">
+                <i class="fa fa-refresh"></i>
+              </button>
+              <button type="button" class="btn btn-default min-expand"></button>
+            </span>
+          </div>
+          <div class="col-xs-12 col-md-8">
+            <div class="row">
+              <div class="col-xs-12 col-sm-3">
+                <table class="table table-condensed table-slim table-cell-no-break no-line">
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label">Realms:</span></td>
+                    <td class="col-xs-6">
+                      <div id="badge_realm_active">
+                        <span id="min-realms" class="badge"><i class="fa fa-globe min-icon" style="font-size:14px;"></i> 0</span>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label bps">Checks:   </span></td>
+                    <td class="col-xs-6">
+                      <div id="badge_checks_active">
+                        <span id="min-checks" class="badge"><i class="fa fa-server min-icon" style="font-size:14px;"></i> 0</span>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-xs-12 col-sm-4">
+                <table class="table table-condensed table-slim table-cell-no-break no-line">
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label h">Hosts:</span></td>
+                    <td class="col-xs-6"><span id="min-host"> 0</span></td>
+                  </tr>
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label h bps">BP Hosts:</span></td>
+                    <td class="col-xs-6"><span id="min-bphost" > 0</span></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-xs-12 col-sm-5">
+                <table class="table table-condensed table-slim table-cell-no-break no-line">
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label s">Services:</span></td>
+                    <td class="col-xs-3"><span id="min-service" > 0</span></td>
+                    <td class="col-xs-3"><span id="min-service-w" > 0</span></td>
+                  </tr>
+                  <tr>
+                    <td class="col-xs-6"><span class="min-label s bps_s">BP Services:</span></td>
+                    <td class="col-xs-3"><span id="min-bpservice" > 0</span></td>
+                    <td class="col-xs-3"><span id="min-bpservice-w" > 0</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body info global-status-panel" style="padding-bottom:0px;">
+      <!-- FILTERS -->
+      <div class="info-filters" id="info-filters">
+        <div class="info-filter select-all all-filters">All</div>
+        
+      </div>
+
+      <!-- STATUS TABLES -->
+      <div class="row row-globalstatus">
+        <!-- GLOBAL STATUS TABLE -->
+        <div class="col-xs-12 col-md-6">
+          <table class="table table-hover table-condensed table-slim table-cell-no-break no-line table-cell-vertical-center text-center first-col-left table-font-sm table-bold-first-col">
+            <thead>
+              <tr>
+                <th class="name col-xs-2"></th>
+                <th title="Total" class="col-xs-2">#</th>
+                <th title="Down" class="col-xs-2"><i class="fa fa-arrow-down"></i></th>
+                <th title="Warning" class="col-xs-2"><i class="fa fa-exclamation"></i></th>
+                <th class="col-xs-4">Health</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="name">Hosts</td>
+                <td id="hostsN"></td>
+                <td id="hostsDown"></td>
+                <td>-</td>
+                <td class="bar">
+                  <div class="progress progress-health">
+                    <div class="progress-bar progress-bar-success" id="hostsBarUp" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-danger" id="hostsBarDown" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar" id="hostsBarUnreachable" style="width: 0%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="name" >Bp hosts</td>
+                <td id="bpHostsN"></td>
+                <td id="bpHostsDown"></td>
+                <td>-</td>
+                <td class="bar">
+                  <div class="progress progress-health">
+                    <div class="progress-bar progress-bar-success" id="bpHostsBarUp" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-danger" id="bpHostsBarDown" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar" id="bpHostsBarUnreachable" style="width: 0%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="name" >Services</td>
+                <td id="servicesN"></td>
+                <td id="servicesDown"></td>
+                <td id="servicesWarn"></td>
+                <td class="bar">
+                  <div class="progress progress-health">
+                    <div class="progress-bar progress-bar-success" id="servicesBarOk" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-danger" id="servicesBarCrit" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-warning" id="servicesBarWarn" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar" id="servicesBarUnknown" style="width: 0%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="name" >Bp services</td>
+                <td id="bpServicesN"></td>
+                <td id="bpServicesDown"></td>
+                <td id="bpServicesWarn"></td>
+                <td class="bar">
+                  <div class="progress progress-health">
+                    <div class="progress-bar progress-bar-success" id="bpServicesBarOk" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-danger" id="bpServicesBarCrit" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar-warning" id="bpServicesBarWarn" style="width: 0%">
+                    </div>
+                    <div class="progress-bar progress-bar" id="bpServicesBarUnknown" style="width: 0%">
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- TOP REALMS TABLE-->
+        <div class="col-xs-12 col-md-6">
+          <table id="topRealms" class="table table-hover table-condensed table-slim table-cell-no-break no-line table-cell-vertical-center text-center first-col-left table-font-sm table-bold-first-col topRealms">
+            <thead>
+              <tr>
+                <th class="col-xs-4">Top Realms</th>
+                <th class="col-xs-2">Problems</th>
+                <th class="col-xs-6">Problems distribution</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
